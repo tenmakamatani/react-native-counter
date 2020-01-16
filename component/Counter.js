@@ -8,35 +8,16 @@ import {
 import colors from '../utils/colors';
 
 class Counter extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 1
-    }
-  }
-
-  plus = () => {
-    this.setState({
-      counter: this.state.counter + 1
-    });
-  }
-
-  minus = () => {
-    this.setState({
-      counter: this.state.counter - 1
-    });
-  }
-
   render() {
+    const { plus, minus } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.count}>{ this.state.counter }</Text>
+        <Text style={styles.count}>{ this.props.counter }</Text>
         <View style={styles.buttonsWrapper}>
-          <TouchableHighlight onPress={this.plus} style={styles.buttonWrapper}>
+          <TouchableHighlight onPress={plus} style={styles.buttonWrapper}>
             <Text style={styles.buttonText}>+</Text>
           </TouchableHighlight>
-          <TouchableHighlight onPress={this.minus} style={styles.buttonWrapper}>
+          <TouchableHighlight onPress={minus} style={styles.buttonWrapper}>
             <Text style={styles.buttonText}>-</Text>
           </TouchableHighlight>
         </View>
